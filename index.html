@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SMS | Projet 3wa s2</title>
+</head>
+<body>
+    <nav>
+        <h1>SimpleMovieSearcher</h1>
+    </nav>
+    
+    
+    <main>
+        <div class="search-part">
+            <p>Vous avez besoin d'informations sur un film ? <br />Cherchez ! Tout simplement.</p>
+            <div class="search">
+                <input class="input-text" id="input-t" type="text" placeholder="Chercher un film">
+                <input class="input-button" id="input-b" type="button" value="Rechercher">
+            </div>
+            
+        </div>
+        <div class="all-movies-search">
+            <div>
+                <span>Vous avez recherché : </span>
+                <span class="film-title-search-result"></span>
+            </div>
+            
+            <div class="pagination">
+                <a class="p-link p-active" href="#">1</a>
+                <a class="p-link" href="#">2</a>
+                <a class="p-link" href="#">3</a>
+                <a class="p-link" href="#">4</a>
+                <a class="p-link" href="#">5</a>
+                <a class="p-link" href="#">6</a>
+            </div>
+
+            <div class="movie-container">
+                <!-- film card -->
+                <div class="film-card">
+                    <img class="film-img" src="b.webp" alt="film">
+                    <span class="film-title">Batman : The dark knight</span>
+                    <p class="film-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum mollitia illo porro harum reiciendis vitae.</p>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <a class="p-link p-active" href="#">1</a>
+                <a class="p-link" href="#">2</a>
+                <a class="p-link" href="#">3</a>
+                <a class="p-link" href="#">4</a>
+                <a class="p-link" href="#">5</a>
+                <a class="p-link" href="#">6</a>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <P class="a">Avez-vous trouvé ce que vous cherchiez ?</P>
+    </footer>
+    <script type="module" src="./js/script.js"></script>
+</body>
+</html>
