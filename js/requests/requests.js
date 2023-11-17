@@ -19,28 +19,26 @@ export function getFilmsRequest() {
     fetch(`https://api.themoviedb.org/3/search/movie?query=${searchItem}&include_adult=false&language=fr-FR&page=1`, options)
         .then(response => response.json())
         .then(response => {
-            console.log(response)
+
             for (const movie of response.results) {
-                console.log(movie.title);
                 // creation des éléments en html
                 let filmDiv = document.createElement('div')
                 let filmImg = document.createElement('img')
                 let filmTitle = document.createElement('span')
                 let filmDesc = document.createElement('p')
                 // ajout des classes en html
-                filmDiv.classList.add = 'film-card'
-                filmImg.classList.add = 'film-img'
-                filmTitle.classList.add = 'film-title'
-                filmDesc.classList.add = 'film-desc'
+                filmDiv.classList.add('film-card')
+                filmImg.classList.add('film-img')
+                filmTitle.classList.add('film-title')
+                filmDesc.classList.add('film-desc')
 
                 // ajout des informations
-                filmImg.src = movie.poster_path
-                filmTitle = movie.title
-                filmDesc = movie.overview
+                filmImg.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                filmTitle.textContent = movie.title
+                filmDesc.textContent = movie.overview.length > 150 ? movie.overview.substring(0, 150) + '...' : movie.overview;
 
                 filmDiv.append(filmImg, filmTitle, filmDesc)
                 movieContainer.append(filmDiv)
-
             }
         })
         .catch(err => console.error(err));
