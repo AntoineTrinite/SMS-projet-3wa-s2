@@ -1,12 +1,14 @@
 const inputText = document.querySelector('#input-t')
 const searchResult = document.querySelector('.film-title-search-result')
 const movieContainer = document.querySelector('.movie-container')
+const pagination = document.querySelector('.pagination')
 
 export function getFilmsRequest() {
     searchResult.innerHTML = null
     movieContainer.innerHTML = null
     searchResult.append(inputText.value)
     const searchItem = inputText.value
+
 
     const options = {
         method: 'GET',
@@ -19,6 +21,14 @@ export function getFilmsRequest() {
     fetch(`https://api.themoviedb.org/3/search/movie?query=${searchItem}&include_adult=false&language=fr-FR&page=1`, options)
         .then(response => response.json())
         .then(response => {
+            console.log(response)
+            for (let page = 1; page <= response.total_pages + 1; page++) {
+                let aLink = document.createElement('a');
+                aLink.classList.add('p-link');
+                aLink.href = 'http://127.0.0.1:5500/index.html/page' + page;
+                aLink.textContent = page;
+                pagination.appendChild(aLink);
+            }
 
             for (const movie of response.results) {
                 // creation des éléments en html
